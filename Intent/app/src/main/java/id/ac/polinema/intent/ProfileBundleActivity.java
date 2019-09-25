@@ -2,11 +2,15 @@ package id.ac.polinema.intent;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.TextView;
 
 public class ProfileBundleActivity extends AppCompatActivity {
+    public static final String USERNAME_KEY = "username";
+    public static final String NAME_KEY = "name";
+    public static final String AGE_KEY = "age";
     private TextView usernameText;
     private TextView nameText;
     private TextView ageText;
@@ -22,11 +26,11 @@ public class ProfileBundleActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            String username = extras.getString(String.valueOf(usernameText));
+            String username = extras.getString(USERNAME_KEY);
             usernameText.setText(username);
-            String name = extras.getString(String.valueOf(nameText));
+            String name = extras.getString(NAME_KEY);
             nameText.setText(name);
-            String age = extras.getString(String.valueOf(ageText));
+            String age = String.valueOf(extras.getInt(AGE_KEY));
             ageText.setText(age);
         }
     }
